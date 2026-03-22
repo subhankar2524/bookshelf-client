@@ -4,6 +4,7 @@ import { useBooks } from "../hooks/useBooks";
 import { useUserActions } from "../hooks/useUserActions";
 import { useUser } from "../hooks/useUser";
 import ErrorPopup from "../components/ErrorPopup";
+import BookSummary from "../components/BookSummary";
 import '../styles/pages/bookDetail.css';
 
 const IconArrowLeft = () => (
@@ -224,6 +225,9 @@ const BookDetail = () => {
           </div>
         </div>
       </div>
+
+      {/* AI Summary Section — outside the hero, full width constrained */}
+      <BookSummary book={book} />
     </>
   );
 };
