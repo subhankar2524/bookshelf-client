@@ -1,0 +1,10 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5vh;
+  min-height: calc(100vh - 80px); /* 80px is navbar approx height */
+  background: transparent;
+}
+
+/* Add any specific home page elements here */

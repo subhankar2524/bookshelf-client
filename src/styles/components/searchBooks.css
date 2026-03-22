@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.search-bar{
+    border-bottom: 1px solid #262626;
+    max-width: 300px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 5px;   
+}
+
+.search-field{
+    width: 100%;
+    border: none;
+    background: none;
+    font-size: 36px;
+    outline: none;
+    color: grey;
+    font-weight: 600;
+}
+
+.search{
+    border: none;
+    background: none;
+    color: grey;
+    width: 40px;
+    cursor: pointer;
+}
+
+.search:hover{
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
+}

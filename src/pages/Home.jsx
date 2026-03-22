@@ -1,12 +1,14 @@
 import { useNavigate } from "react-router-dom";
+import SearchBooks from "../components/searchBooks";
+import '../styles/pages/home.css'
 
 const Home = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   return (
-    <div>
-      <h1>Home</h1>
-      <button onClick={() => navigate("/login")}>Go to Login</button>
+    <div className="home-container">
+      <div style={{height: '30%'}}></div>
+      <SearchBooks />
     </div>
   );
 };
