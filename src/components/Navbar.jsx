@@ -9,7 +9,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <Link to="/">Bookshelf</Link>
+        <img src="/logo.png" alt="logo" className="logo"/>
       </div>
       <div className="navbar-links">
         <Link to="/" className="nav-link">Home</Link>
@@ -19,9 +19,15 @@ const Navbar = () => {
             <Link to="/profile" className="nav-link">Profile</Link>
           </>
         ) : (
-          <Link to="/login" className="nav-link">Login / Signup</Link>
+          <>
+            <Link to="/login" className="nav-link">Login</Link>
+            <Link to="/signup" className="nav-link">Signup</Link>
+          </>
         )}
       </div>
+
+      {/* <div className="navbar-profile">
+      </div> */}
     </nav>
   );
 };

@@ -15,7 +15,7 @@ export const useBooks = () => {
       setBooks(res);
       return res;
     } catch (err) {
-      setError(err);
+      setError(err?.message || 'Something went wrong');
       throw err;
     } finally {
       setLoading(false);
@@ -30,7 +30,7 @@ export const useBooks = () => {
       setCurrentBook(res);
       return res;
     } catch (err) {
-      setError(err);
+      setError(err?.message || 'Something went wrong');
       throw err;
     } finally {
       setLoading(false);

@@ -1,0 +1,292 @@
+/* ── My Books Page ───────────────────────────────── */
+.my-books-page {
+  min-height: calc(100vh - 80px);
+  background: transparent;
+  padding-bottom: 80px;
+}
+
+.my-books-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 24px 0;
+}
+
+/* ── Page header ─────────────────────────────────── */
+.my-books-header {
+  margin-bottom: 40px;
+  animation: fadeUp 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.my-books-header__eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #a09e97;
+  margin: 0 0 8px;
+}
+
+.my-books-header__title {
+  /* font-family: 'Georgia', 'Times New Roman', serif; */
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 700;
+  line-height: 1.15;
+  color: #1a1a18;
+  margin: 0 0 6px;
+}
+
+
+.my-books-header__count {
+  font-size: 13.5px;
+  color: #a09e97;
+}
+
+.my-books-header__count strong {
+  color: #3d6b4f;
+  font-weight: 600;
+}
+
+
+/* ── Masonry grid ────────────────────────────────── */
+.my-books-grid {
+  column-count: 4;
+  column-gap: 20px;
+}
+
+@media (max-width: 1024px) { .my-books-grid { column-count: 3; } }
+@media (max-width: 720px)  { .my-books-grid { column-count: 2; } }
+@media (max-width: 440px)  { .my-books-grid { column-count: 1; } }
+
+/* ── Book card ───────────────────────────────────── */
+.mb-card {
+  break-inside: avoid;
+  display: inline-block;
+  width: 100%;
+  background: #1a1a1a;
+  border: 1px solid #ebebeb;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.2s ease;
+  animation: fadeUp 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+
+/* ── Staggered animation ─────────────────────────── */
+.mb-card:nth-child(1)  { animation-delay: 0.04s; }
+.mb-card:nth-child(2)  { animation-delay: 0.08s; }
+.mb-card:nth-child(3)  { animation-delay: 0.12s; }
+.mb-card:nth-child(4)  { animation-delay: 0.16s; }
+.mb-card:nth-child(5)  { animation-delay: 0.20s; }
+.mb-card:nth-child(6)  { animation-delay: 0.24s; }
+.mb-card:nth-child(7)  { animation-delay: 0.28s; }
+.mb-card:nth-child(8)  { animation-delay: 0.32s; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Cover ───────────────────────────────────────── */
+.mb-card__cover {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: center top;
+  background: #f4f4f0;
+}
+
+.mb-card__cover-placeholder {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background: #f0ede6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #a09e97;
+}
+
+/* ── Card body ───────────────────────────────────── */
+.mb-card__body {
+  padding: 14px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.mb-card__saved-on {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #a09e97;
+}
+
+.mb-card__title {
+  /* font-family: 'Georgia', 'Times New Roman', serif; */
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.35;
+  color: #fff;
+  margin: 0;
+}
+
+
+.mb-card__title a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.15s;
+}
+
+/* .mb-card:hover .mb-card__title a { color: #3d6b4f; } */
+
+/* ── Divider ─────────────────────────────────────── */
+.mb-card__divider {
+  height: 1px;
+  background: #ebebeb;
+  margin: 6px 0 4px;
+}
+
+/* ── Footer actions ──────────────────────────────── */
+.mb-card__footer {
+    margin-top: 10px;
+  display: flex;
+  gap: 8px;
+}
+
+.btn-view {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 7px 0;
+  border-radius: 20px;
+  border: 1.5px solid #d8d4cc;
+  background: transparent;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #6b6960;
+  text-decoration: none;
+  transition: all 0.16s ease;
+  letter-spacing: 0.02em;
+}
+.btn-view:hover {
+  border-color: #3d6b4f;
+  color: #3d6b4f;
+  background: #f0f7f3;
+}
+.btn-view svg { width: 12px; height: 12px; }
+
+.btn-remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1.5px solid #d8d4cc;
+  background: transparent;
+  cursor: pointer;
+  color: #a09e97;
+  transition: all 0.16s ease;
+  flex-shrink: 0;
+}
+.btn-remove:hover {
+  border-color: #c0392b;
+  color: #c0392b;
+  background: rgba(192, 57, 43, 0.06);
+}
+.btn-remove svg { width: 13px; height: 13px; }
+
+/* ── Empty state ─────────────────────────────────── */
+.my-books-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px;
+  text-align: center;
+  gap: 12px;
+  animation: fadeUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.my-books-empty__icon {
+  width: 48px;
+  height: 48px;
+  color: #d3cec4;
+  margin-bottom: 4px;
+}
+
+.my-books-empty__title {
+  /* font-family: 'Georgia', serif; */
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1a18;
+  margin: 0;
+}
+
+
+.my-books-empty__sub {
+  font-size: 13.5px;
+  color: #a09e97;
+  margin: 0;
+}
+
+.my-books-empty__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  padding: 9px 20px;
+  border-radius: 24px;
+  border: 1.5px solid #3d6b4f;
+  background: transparent;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #3d6b4f;
+  text-decoration: none;
+  transition: all 0.18s;
+}
+.my-books-empty__link:hover {
+  background: #3d6b4f;
+  color: #fff;
+}
+
+/* ── Not logged in state ─────────────────────────── */
+.my-books-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  gap: 10px;
+  text-align: center;
+}
+
+.my-books-login__title {
+  /* font-family: 'Georgia', serif; */
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a1a18;
+}
+
+
+
+.my-books-login__sub {
+  font-size: 13.5px;
+  color: #a09e97;
+}
+
+/* ── Loading / error ─────────────────────────────── */
+.my-books-state {
+  text-align: center;
+  padding: 64px 0;
+  font-size: 14px;
+  color: #a09e97;
+  font-style: italic;
+}

@@ -1,0 +1,319 @@
+/* ── Book Detail Page ────────────────────────────── */
+.book-detail-page {
+  min-height: calc(100vh - 80px);
+  background: transparent;
+  padding-bottom: 80px;
+}
+
+/* ── Hero banner (blurred cover bg) ─────────────── */
+.book-detail-hero {
+  position: relative;
+  width: 100%;
+  /* padding: 48px 24px 0; */
+  overflow: hidden;
+}
+
+.book-detail-hero__bg {
+  position: absolute;
+  inset: 0;
+  /* background-image: var(--hero-img); */
+  background-size: cover;
+  background-position: center;
+  filter: blur(60px) saturate(0.4);
+  opacity: 0.18;
+  transform: scale(1.1);
+  z-index: 0;
+}
+
+/* ── Content wrapper ─────────────────────────────── */
+.book-detail-content {
+  position: relative;
+  z-index: 1;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Back nav ────────────────────────────────────── */
+.book-detail-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8a7e6a;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 36px;
+  transition: color 0.15s ease;
+}
+.book-detail-back:hover { color: #3d6b4f; }
+.book-detail-back svg { width: 14px; height: 14px; }
+
+/* ── Main two-col layout ─────────────────────────── */
+.book-detail-main {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+@media (max-width: 640px) {
+  .book-detail-main {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+
+/* ── Cover art ───────────────────────────────────── */
+.book-detail-cover {
+  position: sticky;
+  top: 100px;
+}
+
+.book-detail-cover__img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 20px 60px -12px rgba(0, 0, 0, 0.22),
+              0 4px 16px -4px rgba(0, 0, 0, 0.10);
+  display: block;
+  animation: coverIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.book-detail-cover__placeholder {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  background: #f0ede6;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #a09e97;
+}
+
+@keyframes coverIn {
+  from { opacity: 0; transform: translateY(16px) rotate(-1deg); }
+  to   { opacity: 1; transform: translateY(0) rotate(0deg); }
+}
+
+/* ── Save button (under cover) ───────────────────── */
+.btn-save {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  width: 100%;
+  margin-top: 14px;
+  padding: 10px 0;
+  border-radius: 10px;
+  border: 1.5px solid #3d6b4f;
+  background: transparent;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: #3d6b4f;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  /* font-family: inherit; */
+}
+.btn-save:hover:not(:disabled) {
+  background: #3d6b4f;
+  color: #fff;
+}
+.btn-save:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.btn-save svg { width: 14px; height: 14px; }
+
+/* ── Right side: metadata ────────────────────────── */
+.book-detail-info {
+  animation: infoIn 0.5s 0.08s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes infoIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Categories row ──────────────────────────────── */
+.book-detail-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.book-detail-tag {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1px solid #d3cec4;
+  color: #8a7e6a;
+  background: transparent;
+}
+
+/* ── Title ───────────────────────────────────────── */
+.book-detail-title {
+  /* font-family: 'Georgia', 'Times New Roman', serif; */
+  font-size: clamp(26px, 4vw, 36px);
+  font-weight: 700;
+  line-height: 1.2;
+  color: #242424;
+  margin: 0 0 10px;
+}
+
+
+/* ── Authors ─────────────────────────────────────── */
+.book-detail-authors {
+  font-size: 14px;
+  color: #6b6960;
+  margin: 0 0 28px;
+}
+.book-detail-authors span { color: #3d6b4f; font-weight: 600; }
+
+/* ── Rating row ──────────────────────────────────── */
+.book-detail-rating {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.rating-stars {
+  display: flex;
+  gap: 2px;
+}
+
+.rating-star {
+  width: 15px;
+  height: 15px;
+  color: #d4a017;
+}
+.rating-star.empty { color: #ddd9d0; }
+
+.rating-score {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1a1a18;
+}
+.rating-count {
+  font-size: 12.5px;
+  color: #a09e97;
+}
+
+/* ── Meta grid ───────────────────────────────────── */
+.book-detail-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: #ebebeb;
+  border: 1px solid #ebebeb;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 36px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .book-detail-meta { background: #2e2e2e; border-color: #2e2e2e; }
+}
+
+.book-detail-meta__cell {
+  background: #1a1a1a;
+  padding: 14px 16px;
+}
+
+
+.book-detail-meta__label {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #a09e97;
+  margin-bottom: 3px;
+}
+
+.book-detail-meta__value {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #fff;
+}
+
+
+/* ── Description ─────────────────────────────────── */
+.book-detail-section-label {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #222222;
+  margin: 0 0 12px;
+}
+
+.book-detail-desc {
+  /* font-family: 'Georgia', serif; */
+  font-size: 15px;
+  line-height: 1.85;
+  color: #222222;
+  margin: 0 0 36px;
+}
+
+/* ── External links ──────────────────────────────── */
+.book-detail-links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.book-detail-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 18px;
+  border-radius: 8px;
+  border: 1px solid #d8d4cc;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #3d3c38;
+  text-decoration: none;
+  transition: all 0.16s ease;
+}
+.book-detail-link:hover {
+  border-color: #3d6b4f;
+  color: #3d6b4f;
+  background: #f0f7f3;
+}
+.book-detail-link svg { width: 13px; height: 13px; }
+
+/* ── Divider ─────────────────────────────────────── */
+.book-detail-divider {
+  height: 1px;
+  background: #ebebeb;
+  max-width: 860px;
+  margin: 36px auto;
+}
+
+@media (prefers-color-scheme: dark) {
+  .book-detail-divider { background: #2e2e2e; }
+}
+
+/* ── Loading / error states ──────────────────────── */
+.book-detail-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  font-size: 14px;
+  color: #a09e97;
+  font-style: italic;
+}

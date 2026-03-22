@@ -1,20 +1,18 @@
 .navbar {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 10px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 4rem;
   background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(10px);
-  position: sticky;
   top: 0;
-  z-index: 1000;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  z-index: 998;
   transition: all 0.3s ease;
 }
 
 .navbar-logo a {
-  font-family: 'Inter', sans-serif;
-  font-size: 1.5rem;
   font-weight: 800;
   color: #1a1a1a;
   text-decoration: none;
@@ -24,15 +22,20 @@
   -webkit-text-fill-color: transparent;
 }
 
+.logo {
+  /* width: 50px; */
+  height: 30px;
+}
 
 .navbar-links {
   display: flex;
   gap: 2rem;
   align-items: center;
+  text-transform: uppercase;
 }
 
 .nav-link {
-  font-family: 'Inter', sans-serif;
+  font-size: 12px;
   font-weight: 500;
   color: #4b5563;
   text-decoration: none;

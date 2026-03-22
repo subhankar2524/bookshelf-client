@@ -3,8 +3,210 @@
   flex-direction: column;
   align-items: center;
   padding-top: 5vh;
-  min-height: calc(100vh - 80px); /* 80px is navbar approx height */
+  min-height: calc(100vh - 80px);
   background: transparent;
 }
 
-/* Add any specific home page elements here */
+.books-grid {
+  column-count: 3;
+  column-gap: 20px;
+  width: 100%;
+  max-width: 900px;
+  padding: 32px 24px 64px;
+  box-sizing: border-box;
+  margin-top: 100px;
+}
+
+@media (max-width: 900px) {
+  .books-grid { column-count: 2; }
+}
+
+@media (max-width: 560px) {
+  .books-grid { column-count: 1; }
+}
+
+/* ── Book card ───────────────────────────────────── */
+.book-card {
+  break-inside: avoid;
+  display: inline-block; /* required for CSS masonry */
+  width: 100%;
+  background: var(--card-bg, #fff);
+  border: 1px solid var(--  card-border, #ebebeb);
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+  cursor: pointer;
+  border: 1px solid #2e2e2e;
+}
+
+.book-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px -8px rgba(0, 0, 0, 0.12);
+  border-color: var(--card-border-hover, #d0d0d0);
+}
+
+@media (prefers-color-scheme: dark) {
+  .book-card {
+    --card-bg: #1a1a1a;
+    --card-border: #2e2e2e;
+    --card-border-hover: #444;
+  }
+}
+
+/* ── Thumbnail ───────────────────────────────────── */
+.book-card__cover {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: center top;
+  background: #f4f4f0;
+}
+
+/* placeholder when no image */
+.book-card__cover-placeholder {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background: linear-gradient(145deg, #f0ede6 0%, #e4e0d8 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* font-family: 'Georgia', serif; */
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #a09e97;
+}
+
+/* ── Card body ───────────────────────────────────── */
+.book-card__body {
+  padding: 16px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* ── Category / authors pill ─────────────────────── */
+.book-card__authors {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8a7e6a;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Title ───────────────────────────────────────── */
+.book-card__title {
+  /* font-family: 'Georgia', 'Times New Roman', serif; */
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #1a1a18;
+  margin: 0;
+  transition: color 0.15s ease;
+}
+
+.book-card:hover .book-card__title {
+  color: #3d6b4f; /* subtle accent on hover */
+}
+
+@media (prefers-color-scheme: dark) {
+  .book-card__title { color: #f0ede6; }
+  .book-card:hover .book-card__title { color: #7dbf95; }
+}
+
+.book-card__title a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ── Description ─────────────────────────────────── */
+.book-card__desc {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #6b6960;
+  margin: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  .book-card__desc { color: #9b9890; }
+}
+
+/* ── Divider ─────────────────────────────────────── */
+.book-card__divider {
+  height: 1px;
+  background: #ebebeb;
+  margin: 4px 0 6px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .book-card__divider { background: #2e2e2e; }
+}
+
+/* ── Bookmark button ─────────────────────────────── */
+.book-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.btn-bookmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: 20px;
+  border: 1.5px solid #d8d4cc;
+  background: transparent;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #6b6960;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  line-height: 1;
+  /* font-family: inherit; */
+}
+
+.btn-bookmark:hover {
+  border-color: #3d6b4f;
+  color: #3d6b4f;
+  background: #f0f7f3;
+}
+
+.btn-bookmark.is-bookmarked {
+  background: #3d6b4f;
+  border-color: #3d6b4f;
+  color: #fff;
+}
+
+.btn-bookmark.is-bookmarked:hover {
+  background: #c0392b;
+  border-color: #c0392b;
+  color: #fff;
+}
+
+.btn-bookmark.is-bookmarked:hover .btn-bookmark__label::before {
+  content: 'Remove';
+}
+
+.btn-bookmark__icon {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+}
+
+.books-status {
+  column-span: all;
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 64px 0;
+  font-size: 14px;
+  color: #9b9890;
+  font-style: italic;
+}
