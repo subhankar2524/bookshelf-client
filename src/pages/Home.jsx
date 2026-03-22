@@ -6,19 +6,8 @@ import { useUser } from "../hooks/useUser";
 import '../styles/pages/home.css'
 import { useEffect, useState } from "react";
 import ErrorPopup from "../components/ErrorPopup";
-
-/* ── Bookmark icon SVGs ─────────────────────────── */
-const IconBookmarkEmpty = () => (
-  <svg className="btn-bookmark__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
-  </svg>
-);
-
-const IconBookmarkFilled = () => (
-  <svg className="btn-bookmark__icon" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
-  </svg>
-);
+import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
+import BookmarkIcon from '@mui/icons-material/Bookmark';
 
 const BookCard = ({ book, bookmarked, onBookmark }) => {
   const [hoveringBookmark, setHoveringBookmark] = useState(false);
@@ -67,7 +56,10 @@ const BookCard = ({ book, bookmarked, onBookmark }) => {
             onMouseEnter={() => setHoveringBookmark(true)}
             onMouseLeave={() => setHoveringBookmark(false)}
           >
-            {bookmarked ? <IconBookmarkFilled /> : <IconBookmarkEmpty />}
+            {bookmarked
+              ? <BookmarkIcon className="btn-bookmark__icon" />
+              : <BookmarkBorderIcon className="btn-bookmark__icon" />
+            }
             <span className="btn-bookmark__label">{bmLabel}</span>
           </button>
         </div>

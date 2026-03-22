@@ -51,7 +51,7 @@
   margin-bottom: 36px;
   transition: color 0.15s ease;
 }
-.book-detail-back:hover { color: #3d6b4f; }
+.book-detail-back:hover { color: #382cdd; }
 .book-detail-back svg { width: 14px; height: 14px; }
 
 /* ── Main two-col layout ─────────────────────────── */
@@ -113,18 +113,18 @@
   margin-top: 14px;
   padding: 10px 0;
   border-radius: 10px;
-  border: 1.5px solid #3d6b4f;
+  border: 1.5px solid #382cdd;
   background: transparent;
   font-size: 12.5px;
   font-weight: 600;
   letter-spacing: 0.05em;
-  color: #3d6b4f;
+  color: #382cdd;
   cursor: pointer;
   transition: all 0.18s ease;
   /* font-family: inherit; */
 }
 .btn-save:hover:not(:disabled) {
-  background: #3d6b4f;
+  background: #382cdd;
   color: #fff;
 }
 .btn-save:disabled {
@@ -180,7 +180,7 @@
   color: #6b6960;
   margin: 0 0 28px;
 }
-.book-detail-authors span { color: #3d6b4f; font-weight: 600; }
+.book-detail-authors span { color: #382cdd; font-weight: 600; }
 
 /* ── Rating row ──────────────────────────────────── */
 .book-detail-rating {
@@ -289,9 +289,9 @@
   transition: all 0.16s ease;
 }
 .book-detail-link:hover {
-  border-color: #3d6b4f;
-  color: #3d6b4f;
-  background: #f0f7f3;
+  border-color: #382cdd;
+  color: #382cdd;
+  background: #eeedfb;
 }
 .book-detail-link svg { width: 13px; height: 13px; }
 

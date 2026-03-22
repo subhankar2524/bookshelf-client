@@ -112,12 +112,12 @@
 }
 
 .book-card:hover .book-card__title {
-  color: #3d6b4f; /* subtle accent on hover */
+  color: #382cdd; /* subtle accent on hover */
 }
 
 @media (prefers-color-scheme: dark) {
   .book-card__title { color: #f0ede6; }
-  .book-card:hover .book-card__title { color: #7dbf95; }
+  .book-card:hover .book-card__title { color: #a09bf8; }
 }
 
 .book-card__title a {
@@ -174,14 +174,14 @@
 }
 
 .btn-bookmark:hover {
-  border-color: #3d6b4f;
-  color: #3d6b4f;
-  background: #f0f7f3;
+  border-color: #382cdd;
+  color: #382cdd;
+  background: #eeedfb;
 }
 
 .btn-bookmark.is-bookmarked {
-  background: #3d6b4f;
-  border-color: #3d6b4f;
+  background: #382cdd;
+  border-color: #382cdd;
   color: #fff;
 }
 

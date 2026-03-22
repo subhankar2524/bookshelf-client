@@ -47,16 +47,7 @@ const Profile = () => {
         </div>
 
         <div className="profile-content">
-          <div className="stats-grid">
-            <div className="stat-card">
-              <h3>Books Saved</h3>
-              <p className="stat-value">{bookmarks.length}</p>
-            </div>
-            <div className="stat-card">
-              <h3>Books Read</h3>
-              <p className="stat-value">5</p>
-            </div>
-          </div>
+
 
           <div className="account-details">
             <h2>Account Details</h2>

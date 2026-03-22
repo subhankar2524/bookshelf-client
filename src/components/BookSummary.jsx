@@ -101,7 +101,7 @@ const BookSummary = ({ book }) => {
         {/* Empty / initial state */}
         {!loading && !error && !summary && (
           <div className="book-summary__empty">
-            <div className="book-summary__empty-icon">✨</div>
+            {/* <div className="book-summary__empty-icon">✨</div> */}
             <p>
               Get an AI-powered summary of this book — key themes,
               what to expect, and who it's for.

@@ -6,26 +6,12 @@ import { useUser } from "../hooks/useUser";
 import ErrorPopup from "../components/ErrorPopup";
 import BookSummary from "../components/BookSummary";
 import '../styles/pages/bookDetail.css';
-
-const IconArrowLeft = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M19 12H5M12 5l-7 7 7 7" />
-  </svg>
-);
-
-const IconBookmark = ({ filled }) => (
-  <svg viewBox="0 0 24 24" fill={filled ? "currentColor" : "none"} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
-  </svg>
-);
-
-const IconExternalLink = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-    <polyline points="15 3 21 3 21 9" />
-    <line x1="10" y1="14" x2="21" y2="3" />
-  </svg>
-);
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
+import BookmarkIcon from '@mui/icons-material/Bookmark';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import StarIcon from '@mui/icons-material/Star';
+import StarBorderIcon from '@mui/icons-material/StarBorder';
 
 
 const StarRating = ({ rating, count }) => {
@@ -34,11 +20,11 @@ const StarRating = ({ rating, count }) => {
   return (
     <div className="book-detail-rating">
       <div className="rating-stars">
-        {[1, 2, 3, 4, 5].map((i) => (
-          <svg key={i} className={`rating-star${i <= filled ? '' : ' empty'}`} viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-          </svg>
-        ))}
+        {[1, 2, 3, 4, 5].map((i) =>
+          i <= filled
+            ? <StarIcon key={i} className="rating-star" sx={{ fontSize: 15, color: '#d4a017' }} />
+            : <StarBorderIcon key={i} className="rating-star empty" sx={{ fontSize: 15, color: '#ddd9d0' }} />
+        )}
       </div>
       <span className="rating-score">{rating.toFixed(1)}</span>
       {count > 0 && (
@@ -108,7 +94,7 @@ const BookDetail = () => {
           <div className="book-detail-content">
             {/* Back */}
             <button className="book-detail-back" onClick={() => navigate(-1)}>
-              <IconArrowLeft />
+              <ArrowBackIcon sx={{ fontSize: 14 }} />
               Back
             </button>
 
@@ -132,7 +118,10 @@ const BookDetail = () => {
                   onClick={handleSaveBook}
                   disabled={bookmarkLoading || saved}
                 >
-                  <IconBookmark filled={saved} />
+                  {saved
+                    ? <BookmarkIcon sx={{ fontSize: 14 }} />
+                    : <BookmarkBorderIcon sx={{ fontSize: 14 }} />
+                  }
                   {bookmarkLoading ? 'Saving…' : saved ? 'Saved to My Books' : 'Save to My Books'}
                 </button>
               </div>
@@ -200,7 +189,7 @@ const BookDetail = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <IconExternalLink />
+                        <OpenInNewIcon sx={{ fontSize: 13 }} />
                         Preview Book
                       </a>
                     )}
@@ -211,7 +200,7 @@ const BookDetail = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <IconExternalLink />
+                        <OpenInNewIcon sx={{ fontSize: 13 }} />
                         More Info
                       </a>
                     )}

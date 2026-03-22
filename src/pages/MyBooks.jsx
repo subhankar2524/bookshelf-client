@@ -3,37 +3,10 @@ import { useUserActions } from "../hooks/useUserActions";
 import { useUser } from "../hooks/useUser";
 import { Link } from "react-router-dom";
 import '../styles/pages/myBooks.css';
-
-/* ── Icons ──────────────────────────────────────── */
-const IconEye = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-    <circle cx="12" cy="12" r="3" />
-  </svg>
-);
-
-const IconTrash = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <polyline points="3 6 5 6 21 6" />
-    <path d="M19 6l-1 14H6L5 6" />
-    <path d="M10 11v6M14 11v6" />
-    <path d="M9 6V4h6v2" />
-  </svg>
-);
-
-const IconBookOpen = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
-    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
-  </svg>
-);
-
-const IconSearch = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <circle cx="11" cy="11" r="8" />
-    <line x1="21" y1="21" x2="16.65" y2="16.65" />
-  </svg>
-);
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
+import SearchIcon from '@mui/icons-material/Search';
 
 /* ── Single bookmark card ───────────────────────── */
 const BookmarkCard = ({ bookmark, onRemove }) => {
@@ -66,7 +39,7 @@ const BookmarkCard = ({ bookmark, onRemove }) => {
 
         <div className="mb-card__footer">
           <Link className="btn-view" to={`/book/${bookmark.book_id}`}>
-            <IconEye />
+            <VisibilityIcon sx={{ fontSize: 14 }} />
             View
           </Link>
           <button
@@ -74,7 +47,7 @@ const BookmarkCard = ({ bookmark, onRemove }) => {
             onClick={() => onRemove(bookmark.id)}
             title="Remove bookmark"
           >
-            <IconTrash />
+            <DeleteOutlineIcon sx={{ fontSize: 16 }} />
           </button>
         </div>
       </div>
@@ -96,7 +69,7 @@ const MyBooks = () => {
     return (
       <div className="my-books-page">
         <div className="my-books-login">
-          <IconBookOpen style={{ width: 44, height: 44, color: '#d3cec4' }} />
+          <MenuBookIcon style={{ fontSize: 44, color: '#d3cec4' }} />
           <p className="my-books-login__title">Your shelf is waiting</p>
           <p className="my-books-login__sub">Please log in to see your saved books.</p>
         </div>
@@ -129,13 +102,12 @@ const MyBooks = () => {
         {/* Empty state */}
         {!loading && !error && bookmarks.length === 0 && (
           <div className="my-books-empty">
-            {/* <IconBookOpen className="my-books-empty__icon" style={{width:50, height:50}}/> */}
             <p className="my-books-empty__title">No books saved yet</p>
             <p className="my-books-empty__sub">
               Start building your personal library.
             </p>
             <Link className="my-books-empty__link" to="/">
-              <IconSearch />
+              <SearchIcon sx={{ fontSize: 15 }} />
               Search for books
             </Link>
           </div>
