@@ -1,0 +1,79 @@
+/* Container: handles positioning ONLY */
+.error-popup-container {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+
+  pointer-events: none; /* background clickable */
+}
+
+/* Popup: glass UI + animation */
+.error-popup {
+  min-width: 280px;
+  max-width: 350px;
+  padding: 18px 22px;
+  border-radius: 14px;
+
+  background: rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+
+  color: white;
+  text-align: center;
+
+  pointer-events: auto; /* popup clickable */
+
+  /* FIX: animate only Y (not X) */
+  animation: slideDown 0.3s ease;
+
+  /* performance fix for blur */
+  will-change: transform;
+}
+
+/* Message */
+.error-message {
+  margin-bottom: 12px;
+  font-size: 15px;
+  text-shadow: 
+    0 2px 5px rgba(0, 0, 0, 0.3),
+    0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+/* Button */
+.error-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+
+  background: rgba(0, 0, 0, 0.1);
+  color: white;
+  cursor: pointer;
+
+  /* text-shadow: 
+    0 2px 5px rgba(0, 0, 0, 0.3),
+    0 0 5px rgba(255, 255, 255, 0.5); */
+
+  transition: all 0.25s ease;
+}
+
+.error-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+  transform: scaleX(1.05);
+}
+
+/* Animation: ONLY vertical movement */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,117 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.image-container {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.image-container .image-texts{
+    /* border: 1px solid red; */
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: calc(100% - 80px);
+    color: white;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 40px;
+}
+
+.image-texts h2{
+    font-weight: 300;
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.form-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px;
+  gap: 10px;
+}
+
+.top-text{
+    margin-bottom: 20px;
+}
+.welcome-message{
+    font-weight: 400;
+    font-size: 38px;
+}
+
+.welcome-message-description{
+    color: gray;
+}
+
+.textbox {
+  /* width: 100%; */
+  padding: 12px 14px;
+  /* font-size: 16px; */
+  font-family: 'Inter', sans-serif;
+  border: 1.5px solid #d1d5db;
+  border-radius: 15px;
+  outline: none;
+  transition: all 0.25s ease;
+  background-color: #ffffff;
+  color: #111827;
+}
+
+/* Placeholder */
+.textbox::placeholder {
+  color: #9ca3af;
+}
+
+/* Focus state */
+.textbox:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* Hover effect */
+.textbox:hover {
+  border-color: #9ca3af;
+}
+
+/* Disabled state */
+.textbox:disabled {
+  background-color: #f3f4f6;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.submit{
+    margin-top: 10px;
+    width: auto;
+    padding: 12px;
+    background-color: #382CDD;
+    color: white;
+    font-weight: 500;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.signup-link{
+    display: flex;
+    gap: 5px;
+    color: gray;
+}
