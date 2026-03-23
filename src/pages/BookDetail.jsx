@@ -161,7 +161,8 @@ const BookDetail = () => {
                 {book.description && (
                   <>
                     <p className="book-detail-section-label">About this book</p>
-                    <p className="book-detail-desc">{book.description}</p>
+                    {/* <p className="book-detail-desc">{book.description}</p> */}
+                    <p className="book-detail-desc" dangerouslySetInnerHTML={{ __html: book.description }} />
                   </>
                 )}
 

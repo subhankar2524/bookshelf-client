@@ -185,4 +185,14 @@
     flex-direction: column;
     text-align: center;
   }
+  .profile-wrapper {
+    padding: 20px 10px;
+  }
+  .account-details {
+    padding: 20px;
+  }
+  .stat-card {
+    padding: 16px;
+  }
 }
+

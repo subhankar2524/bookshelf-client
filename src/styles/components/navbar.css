@@ -69,3 +69,24 @@
     gap: 1rem;
   }
 }
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0.8rem 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  .navbar-links {
+    width: 100%;
+    justify-content: center;
+    gap: 15px;
+  }
+  .nav-link {
+    font-size: 11px;
+  }
+  .nav-btn {
+    padding: 0.5rem 1rem;
+    font-size: 11px;
+  }
+}

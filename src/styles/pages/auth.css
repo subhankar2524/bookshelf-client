@@ -115,3 +115,29 @@
     gap: 5px;
     color: gray;
 }
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  .image-container {
+    display: none;
+  }
+  .form-container {
+    padding: 20px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  }
+  .textbox {
+    width: 100%;
+    max-width: 320px;
+  }
+  .submit {
+    width: 100%;
+    max-width: 348px; 
+  }
+  .welcome-message {
+    font-size: 28px;
+  }
+}

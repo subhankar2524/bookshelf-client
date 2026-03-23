@@ -22,8 +22,13 @@
 }
 
 @media (max-width: 560px) {
-  .books-grid { column-count: 1; }
+  .books-grid { 
+    column-count: 1; 
+    margin-top: 40px;
+    padding: 24px 16px 40px;
+  }
 }
+
 
 /* ── Book card ───────────────────────────────────── */
 .book-card {
