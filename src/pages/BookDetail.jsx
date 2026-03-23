@@ -70,7 +70,6 @@ const BookDetail = () => {
     }
   };
 
-  /* ── States ──────────────────────────────────── */
   if (loading) return <div className="book-detail-state">Loading book details…</div>;
   if (!book && error) return <div className="book-detail-state" style={{ color: '#c0392b' }}>Error: {error}</div>;
   if (!book) return <div className="book-detail-state">No book found.</div>;
@@ -87,21 +86,16 @@ const BookDetail = () => {
       />
 
       <div className="book-detail-page">
-        {/* Blurred hero bg */}
         <div className="book-detail-hero" style={heroStyle}>
           <div className="book-detail-hero__bg" />
 
           <div className="book-detail-content">
-            {/* Back */}
             <button className="book-detail-back" onClick={() => navigate(-1)}>
               <ArrowBackIcon sx={{ fontSize: 14 }} />
               Back
             </button>
 
-            {/* Main layout */}
             <div className="book-detail-main">
-
-              {/* Left: cover + save */}
               <div className="book-detail-cover">
                 {book.thumbnail ? (
                   <img
@@ -126,10 +120,8 @@ const BookDetail = () => {
                 </button>
               </div>
 
-              {/* Right: info */}
+              {/* Right: */}
               <div className="book-detail-info">
-
-                {/* Category tags */}
                 {book.categories?.length > 0 && (
                   <div className="book-detail-categories">
                     {book.categories.map((cat, i) => (
@@ -138,18 +130,13 @@ const BookDetail = () => {
                   </div>
                 )}
 
-                {/* Title */}
                 <h1 className="book-detail-title">{book.title}</h1>
-
-                {/* Authors */}
                 <p className="book-detail-authors">
                   by <span>{book.authors?.join(', ') || 'Unknown Author'}</span>
                 </p>
 
-                {/* Stars */}
                 <StarRating rating={book.averageRating} count={book.ratingsCount} />
 
-                {/* Meta grid */}
                 <div className="book-detail-meta">
                   <div className="book-detail-meta__cell">
                     <div className="book-detail-meta__label">Publisher</div>
@@ -171,7 +158,6 @@ const BookDetail = () => {
                   </div>
                 </div>
 
-                {/* Description */}
                 {book.description && (
                   <>
                     <p className="book-detail-section-label">About this book</p>
@@ -179,7 +165,6 @@ const BookDetail = () => {
                   </>
                 )}
 
-                {/* External links */}
                 {(book.previewLink || book.infoLink) && (
                   <div className="book-detail-links">
                     {book.previewLink && (
@@ -215,7 +200,6 @@ const BookDetail = () => {
         </div>
       </div>
 
-      {/* AI Summary Section — outside the hero, full width constrained */}
       <BookSummary book={book} />
     </>
   );

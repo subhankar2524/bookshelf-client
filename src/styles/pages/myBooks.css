@@ -1,17 +1,18 @@
-/* ── My Books Page ───────────────────────────────── */
 .my-books-page {
   min-height: calc(100vh - 80px);
   background: transparent;
   padding-bottom: 80px;
+  /* border: 1px solid red; */
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .my-books-content {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 48px 24px 0;
+  padding: 48px 0 0 0;
 }
 
-/* ── Page header ─────────────────────────────────── */
 .my-books-header {
   margin-bottom: 40px;
   animation: fadeUp 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
@@ -27,9 +28,9 @@
 }
 
 .my-books-header__title {
-  /* font-family: 'Georgia', 'Times New Roman', serif; */
-  font-size: clamp(28px, 4vw, 40px);
-  font-weight: 700;
+  /* font-size: clamp(28px, 4vw, 40px); */
+  font-size: 42px;
+  font-weight: 400;
   line-height: 1.15;
   color: #1a1a18;
   margin: 0 0 6px;
@@ -47,7 +48,6 @@
 }
 
 
-/* ── Masonry grid ────────────────────────────────── */
 .my-books-grid {
   column-count: 4;
   column-gap: 20px;
@@ -57,7 +57,6 @@
 @media (max-width: 720px)  { .my-books-grid { column-count: 2; } }
 @media (max-width: 440px)  { .my-books-grid { column-count: 1; } }
 
-/* ── Book card ───────────────────────────────────── */
 .mb-card {
   break-inside: avoid;
   display: inline-block;
@@ -72,7 +71,6 @@
 }
 
 
-/* ── Staggered animation ─────────────────────────── */
 .mb-card:nth-child(1)  { animation-delay: 0.04s; }
 .mb-card:nth-child(2)  { animation-delay: 0.08s; }
 .mb-card:nth-child(3)  { animation-delay: 0.12s; }
@@ -87,7 +85,6 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ── Cover ───────────────────────────────────────── */
 .mb-card__cover {
   display: block;
   width: 100%;
@@ -110,7 +107,6 @@
   color: #a09e97;
 }
 
-/* ── Card body ───────────────────────────────────── */
 .mb-card__body {
   padding: 14px 16px 16px;
   display: flex;
@@ -127,7 +123,6 @@
 }
 
 .mb-card__title {
-  /* font-family: 'Georgia', 'Times New Roman', serif; */
   font-size: 15px;
   font-weight: 500;
   line-height: 1.35;
@@ -142,16 +137,12 @@
   transition: color 0.15s;
 }
 
-/* .mb-card:hover .mb-card__title a { color: #382cdd; } */
-
-/* ── Divider ─────────────────────────────────────── */
 .mb-card__divider {
   height: 1px;
   background: #ebebeb;
   margin: 6px 0 4px;
 }
 
-/* ── Footer actions ──────────────────────────────── */
 .mb-card__footer {
     margin-top: 10px;
   display: flex;
@@ -176,8 +167,8 @@
   letter-spacing: 0.02em;
 }
 .btn-view:hover {
-  border-color: #382cdd;
-  color: #382cdd;
+  /* border-color: #382cdd;
+  color: #382cdd; */
   background: #eeedfb;
 }
 .btn-view svg { width: 12px; height: 12px; }
@@ -203,7 +194,6 @@
 }
 .btn-remove svg { width: 13px; height: 13px; }
 
-/* ── Empty state ─────────────────────────────────── */
 .my-books-empty {
   display: flex;
   flex-direction: column;
@@ -223,7 +213,6 @@
 }
 
 .my-books-empty__title {
-  /* font-family: 'Georgia', serif; */
   font-size: 20px;
   font-weight: 700;
   color: #1a1a18;
@@ -257,7 +246,6 @@
   color: #fff;
 }
 
-/* ── Not logged in state ─────────────────────────── */
 .my-books-login {
   display: flex;
   flex-direction: column;
@@ -269,7 +257,6 @@
 }
 
 .my-books-login__title {
-  /* font-family: 'Georgia', serif; */
   font-size: 22px;
   font-weight: 700;
   color: #1a1a18;
@@ -282,7 +269,6 @@
   color: #a09e97;
 }
 
-/* ── Loading / error ─────────────────────────────── */
 .my-books-state {
   text-align: center;
   padding: 64px 0;

@@ -10,12 +10,14 @@
 
 .profile-wrapper {
   background-color: var(--bg-color);
-  min-height: 100vh;
+  min-height: 90vh;
   padding: 40px 20px;
+  /* max-width: 900px;
+  margin: 0 auto; */
 }
 
 .profile-container {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
 }
 

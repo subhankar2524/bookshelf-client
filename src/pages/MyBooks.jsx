@@ -7,8 +7,9 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import SearchIcon from '@mui/icons-material/Search';
+import BookmarkIcon from '@mui/icons-material/Bookmark';
 
-/* ── Single bookmark card ───────────────────────── */
+
 const BookmarkCard = ({ bookmark, onRemove }) => {
   const savedDate = new Date(bookmark.created_at).toLocaleDateString('en-US', {
     month: 'short',
@@ -55,7 +56,7 @@ const BookmarkCard = ({ bookmark, onRemove }) => {
   );
 };
 
-/* ── Page ────────────────────────────────────────── */
+
 const MyBooks = () => {
   const { bookmarks, loading, error, getBookmarks, deleteBookmark } = useUserActions();
   const { user } = useUser();
@@ -64,7 +65,6 @@ const MyBooks = () => {
     if (user) getBookmarks();
   }, [user]);
 
-  /* Not logged in */
   if (!user) {
     return (
       <div className="my-books-page">
@@ -81,7 +81,6 @@ const MyBooks = () => {
     <div className="my-books-page">
       <div className="my-books-content">
 
-        {/* Header */}
         <div className="my-books-header">
           <p className="my-books-header__eyebrow">Your collection</p>
           <h1 className="my-books-header__title">My Books</h1>
@@ -95,11 +94,9 @@ const MyBooks = () => {
 
         <div className="my-books-divider" />
 
-        {/* States */}
         {loading && <p className="my-books-state">Loading your collection…</p>}
         {error && <p className="my-books-state" style={{ color: '#c0392b' }}>Error: {error}</p>}
 
-        {/* Empty state */}
         {!loading && !error && bookmarks.length === 0 && (
           <div className="my-books-empty">
             <p className="my-books-empty__title">No books saved yet</p>
@@ -113,7 +110,6 @@ const MyBooks = () => {
           </div>
         )}
 
-        {/* Grid */}
         {!loading && bookmarks.length > 0 && (
           <div className="my-books-grid">
             {bookmarks.map((bookmark) => (

@@ -1,70 +1,143 @@
-# Getting Started with Create React App
+# BookShelf Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the frontend for the BookShelf application, built with React. Follow the steps below to run it locally.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Prerequisites
 
-### `npm start`
+Make sure you have:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* Node.js (v16 or higher)
+* npm or yarn
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## Clone the Repository
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+git https://github.com/subhankar2524/bookshelf-client
+cd bookshelf-client
+```
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Install Dependencies
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## Setup Environment Variables
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Create a `.env` file in the root directory:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+REACT_APP_API_BASE_URL=http://localhost:8080/api
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Update the URL if your backend is running on a different port or deployed.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## Run the Application
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The app will start on:
 
-### Code Splitting
+```
+http://localhost:3000
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## Project Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```
+src/
+  components/
+  pages/
+  hooks/
+  styles/
+  services/
+```
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## API Configuration
 
-### Advanced Configuration
+The project uses Axios for API calls.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Example setup:
 
-### Deployment
+```js
+import axios from "axios";
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+const API = axios.create({
+  baseURL: process.env.REACT_APP_API_BASE_URL,
+});
 
-### `npm run build` fails to minify
+export default API;
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+## Common Issues
+
+### Environment variables not working
+
+* Ensure `.env` is in the root directory
+* Restart the dev server after changes
+* Variable must start with `REACT_APP_`
+
+---
+
+### API not calling
+
+* Check if backend is running
+* Verify `REACT_APP_API_BASE_URL`
+* Check browser console for errors
+
+---
+
+### CORS error
+
+* Ensure backend allows frontend origin
+* Example (backend):
+
+```js
+app.use(cors({
+  origin: "http://localhost:3000",
+}));
+```
+
+---
+
+## Build for Production
+
+```bash
+npm run build
+```
+
+This creates an optimized build in the `build` folder.
+
+---
+
+## Quick Start
+
+```bash
+git clone <repo>
+cd <project>
+npm install
+# add .env
+npm start
+```
+
+---
+
+The application should now be running locally.

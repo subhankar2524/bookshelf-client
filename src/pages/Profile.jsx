@@ -5,7 +5,7 @@ import "../styles/profile.css";
 
 const Profile = () => {
   const { user, loading: userLoading, logout } = useUser();
-  const { bookmarks, getBookmarks, loading: bookmarksLoading } = useUserActions();
+  const {getBookmarks, loading: bookmarksLoading } = useUserActions();
 
   React.useEffect(() => {
     if (user) {

@@ -19,12 +19,14 @@ const BookCard = ({ book, bookmarked, onBookmark }) => {
   return (
     <div className="book-card">
       {book.thumbnail ? (
-        <img
+        <Link to={`/book/${book.id}`}>
+          <img
           className="book-card__cover"
           src={book.thumbnail}
           alt={book.title}
           loading="lazy"
         />
+        </Link>
       ) : (
         <div className="book-card__cover-placeholder">No cover</div>
       )}
@@ -123,7 +125,7 @@ const Home = () => {
       />
 
       <div className="home-container">
-        <div style={{ height: '30%' }} />
+        {/* <div style={{ height: '10%' }} /> */}
         <SearchBooks onSearch={handleSearch} />
 
         <div className="books-grid">

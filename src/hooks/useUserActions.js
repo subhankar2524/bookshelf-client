@@ -26,7 +26,7 @@ export const useUserActions = () => {
       setLoading(true);
       setError(null);
       await createBookmarkService(bookData);
-      await getBookmarks(); // Refresh bookmarks list
+      await getBookmarks(); 
     } catch (err) {
       setError(err);
       throw err;
@@ -40,7 +40,7 @@ export const useUserActions = () => {
       setLoading(true);
       setError(null);
       await deleteBookmarkService(bookmarkId);
-      await getBookmarks(); // Refresh bookmarks list
+      await getBookmarks();
     } catch (err) {
       setError(err);
       throw err;

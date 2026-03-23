@@ -30,31 +30,22 @@
   break-inside: avoid;
   display: inline-block; /* required for CSS masonry */
   width: 100%;
-  background: var(--card-bg, #fff);
-  border: 1px solid var(--  card-border, #ebebeb);
+  background: #1a1a1a;
+  border: 1px solid #2e2e2e;
   border-radius: 14px;
   overflow: hidden;
   margin-bottom: 20px;
   transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
-  cursor: pointer;
+  /* cursor: pointer; */
   border: 1px solid #2e2e2e;
 }
 
 .book-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 36px -8px rgba(0, 0, 0, 0.12);
-  border-color: var(--card-border-hover, #d0d0d0);
+  border-color: #444;
 }
 
-@media (prefers-color-scheme: dark) {
-  .book-card {
-    --card-bg: #1a1a1a;
-    --card-border: #2e2e2e;
-    --card-border-hover: #444;
-  }
-}
-
-/* ── Thumbnail ───────────────────────────────────── */
 .book-card__cover {
   display: block;
   width: 100%;
@@ -62,9 +53,9 @@
   object-fit: cover;
   object-position: center top;
   background: #f4f4f0;
+  cursor: pointer
 }
 
-/* placeholder when no image */
 .book-card__cover-placeholder {
   width: 100%;
   aspect-ratio: 3 / 4;
@@ -79,7 +70,6 @@
   color: #a09e97;
 }
 
-/* ── Card body ───────────────────────────────────── */
 .book-card__body {
   padding: 16px 18px 18px;
   display: flex;
@@ -87,7 +77,6 @@
   gap: 6px;
 }
 
-/* ── Category / authors pill ─────────────────────── */
 .book-card__authors {
   font-size: 11px;
   font-weight: 600;
@@ -100,25 +89,24 @@
   text-overflow: ellipsis;
 }
 
-/* ── Title ───────────────────────────────────────── */
 .book-card__title {
-  /* font-family: 'Georgia', 'Times New Roman', serif; */
   font-size: 16px;
   font-weight: 700;
   line-height: 1.35;
-  color: #1a1a18;
+  color: #cdcdcd;
   margin: 0;
   transition: color 0.15s ease;
+  cursor: pointer;
 }
 
 .book-card:hover .book-card__title {
-  color: #382cdd; /* subtle accent on hover */
+  color: #fff; /* subtle accent on hover */
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   .book-card__title { color: #f0ede6; }
   .book-card:hover .book-card__title { color: #a09bf8; }
-}
+} */
 
 .book-card__title a {
   text-decoration: none;
@@ -133,9 +121,9 @@
   margin: 0;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   .book-card__desc { color: #9b9890; }
-}
+} */
 
 /* ── Divider ─────────────────────────────────────── */
 .book-card__divider {
@@ -144,9 +132,9 @@
   margin: 4px 0 6px;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   .book-card__divider { background: #2e2e2e; }
-}
+} */
 
 /* ── Bookmark button ─────────────────────────────── */
 .book-card__footer {
