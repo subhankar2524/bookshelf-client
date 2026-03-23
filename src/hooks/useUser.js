@@ -16,7 +16,7 @@ export const useUser = () => {
   const logout = () => {
     clearAuthData();
     setUser(null);
-    window.location.href = "/login";
+    window.location.href = "/";
   };
 
   return { user, loading, logout };
